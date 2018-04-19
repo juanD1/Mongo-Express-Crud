@@ -1,6 +1,6 @@
 module.export = function() {
 
-	let db = require('../libs/db-conecction')()
+	let db = require('./../libs/db-conecction')()
 	let Schema = require('mongoose').Schema
 
 	let Task = Schema({
