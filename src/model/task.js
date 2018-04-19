@@ -8,5 +8,5 @@ module.export = function() {
 		description: String,
 		status: Boolean
 	})
-	return db.model('task', Task)
+	return db.model('tasks', Task)
 }

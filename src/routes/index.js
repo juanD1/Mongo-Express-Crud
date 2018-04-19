@@ -4,13 +4,13 @@ const router = express.Router()
 const model = require('../model/task')()
 
 router.get('/', (req, res) => {
-	model.find({}, (err, data) => {
+	model.find({}, (err, tasks) => {
 		if (err) throw err
 		res.render('index', {
 			title: 'CRUD',
-			task: data
+			task: tasks
 		})
-	})	
+	})
 })
 
 module.exports = router
