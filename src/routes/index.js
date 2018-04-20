@@ -26,11 +26,11 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/turn/:id', (req, res) => {
-	console.log("params.id:"+req.params.id)
-	// let id = new ObjectId(req.param.id)
-	// model.findById({"_id": id}, (err, task) =>
-	let id = ObjectId(req.param.id)
-	// let id = req.param.id
+	// console.log("params.id:"+req.params.id)
+	// // let id = new ObjectId(req.param.id)
+	// // model.findById({"_id": id}, (err, task) =>
+	// let _id = ObjectId(req.param.id)
+	// // let id = req.param.id
 	console.log(typeof(id))
 	// model.findOne({_id: id}, (err, task) => {
 	// 	console.log("task: "+task)
@@ -40,7 +40,7 @@ router.get('/turn/:id', (req, res) => {
 	// 	task.save()
 	// 	.then(() => res.redirect('/'))
 	// })
-	model.findById(ObjectId(id), (err, task) => {
+	model.findOne({_id: req.param.id}, (err, task) => {
 	// model.findById(id, (err, task) => {
 		console.log(err)
 		if (err) throw err

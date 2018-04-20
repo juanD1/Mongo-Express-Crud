@@ -35,10 +35,10 @@ html(lang="en")
 								td
 									- i++
 									#{i}
-								td #{task.title} #{task.status}						
+								td #{task.title} #{task.status} #{task._id}				
 								td #{task.description}
 								td
-									- let id = Object(task._id)
+									- let id = task._id
 									//- - let id = Object(task.title)
 									a(class= task.status ? 'btn btn-success' : 'btn btn-dark' href="/turn/"+id) Done
 									|								 
