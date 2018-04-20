@@ -34,9 +34,11 @@ html(lang="en")
 							tr
 								td
 									- i++
-									#{i}
-								td #{task.title}			
-								td #{task.description}
+									h5(style= task.status ? 'color: green; text-decoration: line-through' : 'color: black') #{i}
+								td 								
+									h5(style= task.status ? 'color: green; text-decoration: line-through' : 'color: black') #{task.title}			
+								td 
+									h5(style= task.status ? 'color: green; text-decoration: line-through' : 'color: black') #{task.description}
 								td
 									- let id = task._id
 									- let title = task.title						
