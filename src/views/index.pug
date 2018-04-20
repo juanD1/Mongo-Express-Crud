@@ -39,6 +39,7 @@ html(lang="en")
 								td #{task.description}
 								td
 									- let id = Object(task._id)
+									//- - let id = Object(task.title)
 									a(class= task.status ? 'btn btn-success' : 'btn btn-dark' href="/turn/"+id) Done
 									|								 
 									a(class="btn btn-danger" href='') Delete
