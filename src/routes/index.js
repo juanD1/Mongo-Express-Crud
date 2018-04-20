@@ -9,9 +9,20 @@ router.get('/', (req, res) => {
 		if (err) throw err
 		res.render('index', {
 			title: 'CRUD',
-			task: tasks
+			tasks: tasks
 		})
 	})
+})
+
+router.post('/add', (req, res) => {
+	let body = req.body
+	body.state = false
+
+	model.create(body, (err, task) => {
+		if(err) throw err
+		res.redirect('/')
+	})
+
 })
 
 module.exports = router

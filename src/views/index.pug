@@ -14,10 +14,11 @@ html(lang="en")
 			div
 				div(class='card')
 					form(action="/add" method='post')
+					legend Add a task
 						div(class='form-group')
 							input(class='form-control' type='text' id='title' name='title' placeholder='Title')
 						div(class='form-group')
-							textarea( class='form-control' name="description" rows='1' cols="80" placeholder='Add a Description')
+							textarea( class='form-control' name="description" rows='1' cols="80" placeholder='Add a description')
 						button(class='btn btn-primary' type='submit') add
 			//- LIST
 			div
@@ -29,8 +30,8 @@ html(lang="en")
 							th Description
 							th Operation
 					tbody
-						//- each field in task
-						//- 	tr
-						//- 		td #{field}
+						each task in tasks
+							tr
+								td #{task}
 	script.
 		document.getElementById('title').focus()					
