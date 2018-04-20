@@ -42,13 +42,16 @@ router.get('/task/:id', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
 	let id = req.params.id
-	res.render('index', {
+	model.findById(id)
+	.then((task) => {
+		res.render('edit', {
 			title: 'CRUD',
-			tasks: tasks
-		})		
-		.catch((err) => {
-			console.log(err)
+			task: task
 		})
+	})			
+	.catch((err) => {
+		console.log(err)
+	})
 })
 
 router.get('/delete/:id', (req, res) => {

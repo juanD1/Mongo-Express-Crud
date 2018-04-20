@@ -38,10 +38,11 @@ html(lang="en")
 								td #{task.title}			
 								td #{task.description}
 								td
-									- let id = task._id									
+									- let id = task._id
+									- let title = task.title						
 									a(class= task.status ? 'btn btn-success' : 'btn btn-dark' href='/task/'+id) Done
 									|									
-									a(class='btn btn-warning' style='color: white' href='/update/'+id) Update
+									a(class='btn btn-warning' style='color: white' href='/edit/'+id) Edit
 									|									
 									a(class="btn btn-danger" href='/delete/'+id) Delete									
 	script.
