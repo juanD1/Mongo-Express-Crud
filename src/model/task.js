@@ -1,12 +1,13 @@
 module.exports = function() {
 
-	let db = require('../libs/db-conecction')()
-	let Schema = require('mongoose').Schema
+	var db = require('../libs/db-conecction')()
+	var mongoose = require('mongoose')
+	var Schema = mongoose.Schema
 
-	let Task = Schema({
+	var Task =  new Schema({
 		title: String,
 		description: String,
 		status: Boolean
 	})
-	return db.model('tasks', Task)
+	return mongoose.model('tasks', Task)
 }
