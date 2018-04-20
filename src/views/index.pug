@@ -8,25 +8,29 @@ html(lang="en")
 		title= title
 	body
 		div(class='container')
+			div(class='row')
 			h1= title
 			//- FORM
-			form(action="/add" method='post')
-				div(class='form-inline')
-					legend add a Tax pug
+			div
+				div(class='card')
+					form(action="/add" method='post')
 						div(class='form-group')
-							input(id='title' class='form-control' type='text' name='title')
-						div(class='form-group mx-sm-3')
-							textarea( class='form-control' name="description", cols="80", rows="1" placeholder='Add a Description')
+							input(class='form-control' type='text' id='title' name='title' placeholder='Title')
+						div(class='form-group')
+							textarea( class='form-control' name="description" rows='1' cols="80" placeholder='Add a Description')
 						button(class='btn btn-primary' type='submit') add
 			//- LIST
-			table(class='table table-bordered table-hover')
-				thead(class='thead-inverse')
-					tr
-						th #
-						th Title
-						th Description
-						th Operation
-				tbody
-					//- each field in task
-					//- 	tr
-					//- 		td #{field}					
+			div
+				table(class='table table-bordered table-hover')
+					thead
+						tr
+							th #
+							th Title
+							th Description
+							th Operation
+					tbody
+						//- each field in task
+						//- 	tr
+						//- 		td #{field}
+	script.
+		document.getElementById('title').focus()					
