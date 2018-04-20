@@ -7,11 +7,11 @@ const ObjectId = (require('mongoose').Types.ObjectId);
 
 router.get('/', (req, res) => {
 	model.find({}, (err, tasks) => {		
-		if (err) throw err
+		if (err) throw err		
 		res.render('index', {
 			title: 'CRUD',
 			tasks: tasks
-		})
+		})		
 	})
 })
 
@@ -25,27 +25,18 @@ router.post('/add', (req, res) => {
 	})
 })
 
-router.get('/turn/:id', (req, res) => {
-	// console.log("params.id:"+req.params.id)
-	// // let id = new ObjectId(req.param.id)
-	// // model.findById({"_id": id}, (err, task) =>
-	// let _id = ObjectId(req.param.id)
-	// // let id = req.param.id
-	console.log(typeof(id))
-	// model.findOne({_id: id}, (err, task) => {
-	// 	console.log("task: "+task)
-	// 	console.log("error: --- "+ err)
-	// 	if (err) throw err
-	// 	task.status = !task.status
-	// 	task.save()
-	// 	.then(() => res.redirect('/'))
-	// })
-	model.findOne({_id: req.param.id}, (err, task) => {
-	// model.findById(id, (err, task) => {
-		console.log(err)
-		if (err) throw err
-		res.json(task)
-	})
+router.get('/task/:id', (req, res) => {
+	let id = req.params.id
+	model.findById(id)
+		.then((task) => {
+			// res.json(task)
+			task.status = !task.status
+			task.save()
+			res.redirect('/')
+		})
+		.catch((err) => {
+			console.log(err)
+		})		
 })
 
 module.exports = router

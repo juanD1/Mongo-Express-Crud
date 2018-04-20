@@ -4,7 +4,7 @@ module.exports = function() {
 	var mongoose = require('mongoose')
 	var Schema = mongoose.Schema
 
-	var Task =  new Schema({
+	var Task =  new Schema({		
 		title: String,
 		description: String,
 		status: Boolean
