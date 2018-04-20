@@ -42,6 +42,7 @@ router.get('/task/:id', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
 	let id = req.params.id
+	let body = req.body
 	model.findById(id)
 	.then((task) => {
 		res.render('edit', {
@@ -52,6 +53,18 @@ router.get('/edit/:id', (req, res) => {
 	.catch((err) => {
 		console.log(err)
 	})
+})
+
+router.post('/update/:id', (req, res) => {
+	let id = req.params.id
+	let body = req.body
+	model.findByIdAndUpdate(id, body)
+	.then(() => {				
+		res.redirect('/')
+	})
+	.catch((err) => {
+		console.log(err)
+	})		
 })
 
 router.get('/delete/:id', (req, res) => {

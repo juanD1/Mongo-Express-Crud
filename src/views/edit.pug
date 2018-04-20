@@ -12,11 +12,12 @@ html(lang="en")
 			h1= title
 			//- FORM
 			div
-				form(action='/update/:id' method='post')
+				- let id = task._id
+				form(action='/update/'+id method='post')
 					legend Edit the task
 						div(class='form-group')
 							input(class='form-control' type='text' id='title' name='title' placeholder='Title' value=task.title)
 						div(class='form-group')
 							textarea( class='form-control' name="description" rows='1' cols="80" placeholder='Add a description') #{task.description}
-						- let id = task._id
-						button(class='btn btn-primary' href='/update/'+id) Update
+					button(class='btn btn-warning' style='color: white; margin: 5px') Update
+					a(class='btn btn-primary' href='/') Cancel				
