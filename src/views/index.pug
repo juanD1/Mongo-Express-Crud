@@ -18,7 +18,7 @@ html(lang="en")
 							input(class='form-control' type='text' id='title' name='title' placeholder='Title')
 						div(class='form-group')
 							textarea( class='form-control' name="description" rows='1' cols="80" placeholder='Add a description')
-						button(class='btn btn-primary') add
+						button(class='btn btn-primary') Add
 			//- LIST
 			div
 				table(class='table table-bordered table-hover')
@@ -35,12 +35,14 @@ html(lang="en")
 								td
 									- i++
 									#{i}
-								td #{task.title} #{task.status} #{task._id}				
+								td #{task.title}			
 								td #{task.description}
 								td
 									- let id = task._id									
 									a(class= task.status ? 'btn btn-success' : 'btn btn-dark' href='/task/'+id) Done
-									|								 
-									a(class="btn btn-danger" href='') Delete
+									|									
+									a(class='btn btn-warning' style='color: white' href='/update/'+id) Update
+									|									
+									a(class="btn btn-danger" href='/delete/'+id) Delete									
 	script.
 		document.getElementById('title').focus()					

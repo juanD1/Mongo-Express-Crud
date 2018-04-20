@@ -39,4 +39,27 @@ router.get('/task/:id', (req, res) => {
 		})		
 })
 
+
+router.get('/edit/:id', (req, res) => {
+	let id = req.params.id
+	res.render('index', {
+			title: 'CRUD',
+			tasks: tasks
+		})		
+		.catch((err) => {
+			console.log(err)
+		})
+})
+
+router.get('/delete/:id', (req, res) => {
+	let id = req.params.id
+	model.remove({_id: id})
+		.then((task) =>{
+			res.redirect('/')
+		})
+		.catch((err) => {
+			console.log(err)
+		})
+})
+
 module.exports = router
