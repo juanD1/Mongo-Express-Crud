@@ -33,13 +33,14 @@ html(lang="en")
 						each task in tasks							
 							tr
 								td
-									- i++																	
+									- i++
 									#{i}
-								td #{task.title}
+								td #{task.title} #{task.status}						
 								td #{task.description}
 								td
-									button(class='btn btn-success' href='' style='margin-left:;') Done
+									- let id = task._id
+									a(class= task.status ? 'btn btn-success' : 'btn btn-dark' href="/turn/"+id) Done
 									|								 
-									button(class="btn btn-danger" href='') Delete
+									a(class="btn btn-danger" href='') Delete
 	script.
 		document.getElementById('title').focus()					
