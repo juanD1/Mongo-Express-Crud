@@ -13,7 +13,7 @@ html(lang="en")
 			//- FORM
 			div
 				div(class='card')
-					form(action="/add" method='post')
+					form(action='/add' method='post')
 					legend Add a task
 						div(class='form-group')
 							input(class='form-control' type='text' id='title' name='title' placeholder='Title')
@@ -32,6 +32,15 @@ html(lang="en")
 					tbody
 						each task in tasks
 							tr
-								td #{task}
+								td 
+									- let i = 0
+									- i ++								
+									#{i}
+								td #{task.title}
+								td #{task.description}
+								td
+									button(class='btn btn-success' href='' style='margin-left:;') Done
+									|								 
+									button(class="btn btn-danger" href='') Delete
 	script.
 		document.getElementById('title').focus()					

@@ -14,15 +14,14 @@ router.get('/', (req, res) => {
 	})
 })
 
-router.post('/add', (req, res) => {
-	let body = req.body
-	body.state = false
+// router.post('/add', (req, res) => {
+// 	let body = req.body
+// 	body.status = false
 
-	model.create(body, (err, task) => {
-		if(err) throw err
-		res.redirect('/')
-	})
-
-})
+// 	// model.insert(body, (err, tasks) => {
+// 	// 	if(err) throw err
+// 	// 	res.redirect('/')
+// 	// })
+// })
 
 module.exports = router
