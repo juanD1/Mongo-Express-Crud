@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-let db
+var db
 
 module.exports = function Connection(){
 	if (!db) {
