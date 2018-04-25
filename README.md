@@ -1,2 +1,2 @@
 # Mongo-Express-Crud
-Crud realizado con mongo y express
+Crud realizado con mongo, mongoose y express
