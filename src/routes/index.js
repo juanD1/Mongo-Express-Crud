@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const model = require('../model/task')()
+const model = require('../model/tasks')()
 const ObjectId = (require('mongoose').Types.ObjectId);
 
 
